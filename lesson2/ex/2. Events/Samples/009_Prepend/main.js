@@ -22,4 +22,4 @@ emt.prependOnceListener('once', function(){
 emt.emit('myEvent');
 emt.emit('once');
 
-
+emt.emit('once');
