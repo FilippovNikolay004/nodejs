@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        /*NORMALIZE CSS*/
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        body, h1, h2, h3, h4, h5, h6, p {
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            writing-mode: vertical-rl;
+        }
+        ul, li {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            display: block;
+            text-decoration: none;
+        }
+        input {
+            outline: none;
+            border: none;
+            background-color: inherit;
+        }
+        button {
+            background: none;
+            cursor: pointer;
+            border: none;
+        }
+
+        ::selection {
+            background: #ffffff29;
+        }
+
+
+        body {
+            height: 100vh;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            background: url('https://images.unsplash.com/photo-1464014449614-e470468e3ec1?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTB8fHxlbnwwfHx8fHw%3D') no-repeat center top/cover;
+        }
+
+        .header {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .header__title {
+            color: #fff;
+            font-size: 54px;
+        }
+        .header__sub-title {
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: underline;
+        }
+        .header__sub-title--yellow {
+            color: #ffa215;
+            text-transform: uppercase;
+            text-decoration: underline;
+        }
+
+    </style>
+
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__title">Hello world</h1>
+        <p class="header__sub-title">Node<span class="header__sub-title--yellow">Js</span></p>
+    </header>
+</body>
+</html>

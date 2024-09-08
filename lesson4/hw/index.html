@@ -4,24 +4,145 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /*NORMALIZE CSS*/
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        body, h1, h2, h3, h4, h5, h6, p {
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            writing-mode: vertical-rl;
+        }
+        ul, li {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            display: block;
+            text-decoration: none;
+        }
+        input {
+            outline: none;
+            border: none;
+            background-color: inherit;
+        }
+        button {
+            background: none;
+            cursor: pointer;
+            border: none;
+        }
+
+        ::selection {
+            background: #ffffff29;
+        }
+
+
+        body {
+            height: 100vh;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            background: url('https://images.unsplash.com/photo-1464014449614-e470468e3ec1?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTB8fHxlbnwwfHx8fHw%3D') no-repeat center top/cover;
+        }
+
+        .form {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            
+            padding: 15px;
+
+            border: 1px solid #fff;
+            border-radius: 15px;
+
+            backdrop-filter: blur(5px);
+        }
+        .form__title {
+            margin-bottom: 15px;
+
+            color: #fff;
+            text-transform: uppercase;
+        }
+        .form__content {
+            position: relative;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .form__input {
+            width: 100%;
+
+            color: #fff;
+            font-size: 18px;
+            border-bottom: 1px solid #fff;
+        }
+        .form__item:not(:last-child) {
+            margin-bottom: 10px;
+        }
+        .form__btn {
+            display: block;
+
+            margin: 0 auto;
+            padding: 5px 55px;
+            margin-top: 30px;
+
+            color: #fff;
+
+            transition: all .5s;
+
+            border: 1px solid #fff;
+            border-radius: 5px;
+        }
+        .form__btn:hover {
+            color: #000;
+            background-color: #fff;
+        }
+    </style>
 
     <title>Document</title>
 </head>
 <body>
     <header class="header">
-        <form class="form" action="#" method="POST">
+        <form class="form" action="/home.html" method="POST">
             <h1 class="form__title">authorization</h1>
             <div class="form__content">
                 <div class="form__item">
-                    <input class="form__input" type="text" placeholder="Login">
+                    <input id="login" class="form__input" type="text" placeholder="Login">
                 </div>
                 <div class="form__item"></div>
-                    <input class="form__input" type="password" placeholder="Password">
+                    <input id="password" class="form__input" type="password" placeholder="Password">
                 </div>
             </div>
-            <button class="form__btn">Ok</button>
+            <button id="btn" type="button" class="form__btn">Ok</button>
         </form>
     </header>
+
+    <script>
+        let btn = document.querySelector('#btn').addEventListener('click', function() {
+            const login = document.getElementById('login').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            const isValid = (login == 'hello' && password == 'world');
+
+            console.log(isValid);
+
+            if (isValid) {
+                window.location.href = '/home.html';
+            } else {
+                alert('Заполните поля или введён не верный логин или пароль');
+            }
+        });
+    </script>
 </body>
 </html>
