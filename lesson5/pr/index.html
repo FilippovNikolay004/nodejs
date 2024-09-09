@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="content">
+        <form id="form" action="/data" method="get">
+            <div class="item">
+                <label class="label" for="">Name: </label>
+                <input id="name" class="imput" type="text">
+            </div>
+            <div class="item">
+                <label class="label" for="">Login: </label>
+                <input id="login" class="imput" type="text">
+            </div>
+            <div class="item">
+                <label class="label" for="">Password: </label>
+                <input id="password" class="imput" type="password">
+            </div>
+            <button id="btn" type="button">Отправить</button>
+        </form>
+
+        <div class="output"></div>
+    </div>
+
+    <script>
+        let btn = document.querySelector('#btn').addEventListener('click', function() {
+            const login = document.getElementById('login').value;
+            const password = document.getElementById('password').value;
+            const name = document.getElementById('name').value;
+            
+            const isValid = (login == 'hello' && password == 'world' && name != '');
+
+            console.log(isValid);
+
+            if (isValid) {
+                document.querySelector('.output').innerHTML = `Добро пожаловать ${name}`;
+            } else {
+                alert('Заполните поля или введён не верный логин или пароль');
+            }
+        });
+    </script>
+</body>
+</html>
