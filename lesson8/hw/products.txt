@@ -1,0 +1,14 @@
+name: HP
+cpu: amd
+gpu: nvidiaGtx1060
+ram: 16
+=
+name: Lenovo
+cpu: intel
+gpu: nvidiaGtx1650
+ram: 16
+=
+name: Samsung
+cpu: intel
+gpu: nvidiaGtx1060
+ram: 32
