@@ -13,9 +13,9 @@ var config = {
   user: 'admin',
   password: 'admin',
   options: {
-        encrypt: true,  // Использование SSL/TLS
-        trustServerCertificate: true // Отключение проверки самоподписанного сертификата
-    },
+    encrypt: true,  // Использование SSL/TLS
+    trustServerCertificate: true // Отключение проверки самоподписанного сертификата
+  },
   port: 1433
 }
 
