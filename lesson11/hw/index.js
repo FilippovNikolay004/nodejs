@@ -7,8 +7,14 @@ var port = 8080;
 
 // connection
 var connection = require('./config');
+const getAllItems = require('./queris');
+
 
 app.use(express.urlencoded({ extended: true }));
+
+
+app.set('views', path.join(__dirname, 'pages'));
+app.set('view engine', 'ejs');
 
 
 // Маршрут для главной страницы
@@ -67,7 +73,7 @@ app.post('/serverSignIn', (req, res) => {
                     const user = data.recordset[0];
 
                     if (user.userType == 'admin') {
-                        res.sendFile(path.join(__dirname, '/pages/admin.html'));
+                        getAllItems(req, res);
                     } else if (user.userType == 'user') {
                         res.sendFile(path.join(__dirname, '/pages/user.html'));
                     }

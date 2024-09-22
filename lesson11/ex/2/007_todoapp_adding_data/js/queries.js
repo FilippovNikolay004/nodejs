@@ -12,23 +12,23 @@ module.exports = {
         var self = this; 		
 		self.tableRows = ``; 
 
-			var request = new mssql.Request(connection);  
-			request.stream = true; 
-			request.query("SELECT * FROM items"); 
-			
-			request.on('row', function(row){ 
-	
-				self.tableRows += ` <tr>
-							<td>${row.name} </td>
-							<td>${row.description}</td>
-							<td>${row.completed ? 'yes' : 'no'}</td>
-						</tr>` 
-			}); 
-			
-			request.on('done', function(affected) { 
-				console.log('show_items'); 
-				res.render('index', { data:  self.tableRows }); 
-			})		
+		var request = new mssql.Request(connection);  
+		request.stream = true; 
+		request.query("SELECT * FROM items"); 
+		
+		request.on('row', function(row){ 
+
+			self.tableRows += ` <tr>
+						<td>${row.name} </td>
+						<td>${row.description}</td>
+						<td>${row.completed ? 'yes' : 'no'}</td>
+					</tr>` 
+		}); 
+		
+		request.on('done', function(affected) { 
+			console.log('show_items'); 
+			res.render('index', { data:  self.tableRows }); 
+		})		
 
     }, 
 	// добавить элемент в бд
