@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- <script>
+        window.onload = function() {
+            document.querySelectorAll('.btn').forEach(function(button) {
+                button.onclick = function() {
+                    var title = document.querySelector('.section__title').innerText;
+
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST','/add');
+
+                    var data = JSON.stringify({ title: title });
+
+                    xhr.setRequestHeader('Content-Type', 'application/json'); 
+                    xhr.send(data);
+                };
+            });
+        }
+    </script> -->
+</head>
+<body>
+    <main class="main">
+        <section class="section">
+            <div class="section__columns">
+                <form action="/" method="POST">
+                    <select name="table">
+                        <option value="Faculties" selected>Faculties</option>
+                        <option value="Groups">Groups</option>
+                        <option value="Students">Students</option>
+                    </select>
+                    <button type="submit">Ok</button>
+                </form>
+                <div class="section__data">
+                    <div class="section__table">
+                        <h1 class="section__title"><%- title %></h1>
+                        <table border="1">
+                            <thead>
+                                <tr>
+                                    <%- dataTHead %>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%- dataTBody %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="section__interface">
+                        <button type="button">Add</button>
+                        <button type="button">Edit</button>
+                        <button type="button">Delete</button>
+                    </div>
+                    <div class="section__add interface">
+                        <h3>Add</h3>
+                        <form id="formAdd" action="/add" method="POST">
+                            <%- inputAdd %>
+
+                            <button class="btn" type="submit">Done!</button>
+                        </form>
+                    </div>
+                    <div class="section__edit interface">
+                        <h3>Edit</h3>
+                        <form id="formEdit" action="/edit" method="POST">
+                            <%- inputEdit %>
+
+                            <button class="btn" href="/edit" type="submit">Ok</button>
+                        </form>
+                    </div>
+                    <div class="section__delete interface">
+                        <h3>Delete</h3>
+                        <form id="formDelete" action="/delete" method="POST">
+                            <%- inputDelete %>
+
+                            <button class="btn" href="/delete" type="submit">Ok</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
