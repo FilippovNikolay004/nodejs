@@ -63,7 +63,7 @@ app.post('/login', function(req, res) {
             if (err) { console.error(err); }
 
 			if (data.recordset.length != 0) {
-				res.cookie('login', 'admin', { maxAge : 10000 });
+				res.cookie('login:', login, { maxAge : 10000 });
 				console.log(req.cookies);
 
 				res.redirect('/indexPage');

@@ -1,55 +1,48 @@
 var express  = require('express');
-var bodyParser = require('body-parser');
-var router = express.Router();
-var mssql = require('mssql');
 var path = require('path');
-var app = express();
+
 var port = 8080;
 
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+// вложенные приложения используются для маршрутизации 
+var app = express();    // главное приложение
+var news = express();       // вложенное приложение 
+var aboutUs = express();    // вложенное приложение 
 
-app.set('views', path.join(__dirname, 'pages'));
-app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
-    res.render('index', { 
-        title: 'Default',
-        dataTHead: null, dataTBody: null,
-        inputAdd: null, inputEdit: null, inputDelete: null
-    });
+    res.sendFile(path.join(__dirname, "/pages/index.html"));
 });
 
-// Маршрут для главной страницы
-app.post('/', function(req, res) {
-    
+app.get('/home', function(req, res) {
+    res.sendFile(path.join(__dirname, "/pages/home.html"));
 });
 
-
-
-// add
-app.post('/add', function(req, res) {
-    
-
-    res.send('Add item');
+news.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname, "/pages/news.html"));
 });
 
-
-// edit
-app.post('/edit', function(req, res) {
-    
-
-    res.send('Edit item');
+aboutUs.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname, "/pages/aboutUs.html"));
+});
+aboutUs.get('/Company', function(req, res) {
+    res.sendFile(path.join(__dirname, "/pages/company.html"));
+});
+aboutUs.get('/Me', function(req, res) {
+    res.sendFile(path.join(__dirname, "/pages/me.html"));
 });
 
-
-// delete
-app.post('/delete', function(req, res) {
-    
-
-    res.send('Delete item');
+app.get('/singIn', function(req, res) {
+    res.sendFile(path.join(__dirname, "/pages/singIn.html"));
 });
+
+app.get('/singUp', function(req, res) {
+    res.sendFile(path.join(__dirname, "/pages/singUp.html"));
+});
+
+// связывание главного приложения со вложенным 
+app.use('/news', news); 
+app.use('/aboutUs', aboutUs); 
 
 
 app.listen(port, function() {

@@ -1,0 +1,16 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
+.menu {
+}
+.menu__item {
+}
+.menu__link {
+}
+.auth-service {
+}
+.auth-service__item {
+}
+.auth-service__link {
+}
