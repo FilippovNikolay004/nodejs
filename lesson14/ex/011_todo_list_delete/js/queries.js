@@ -26,15 +26,16 @@ module.exports = {
 						</tr>`
 
 			} else {
-				self.tableRows += ` <tr>
-							<td><span class="glyphicon glyphicon-pencil edit" style="cursor: pointer" 
-							id="${row.id}"> &nbsp; </span> 
-							<span class="glyphicon glyphicon-remove delete" style="cursor: pointer" 
-							id="${row.id}"> &nbsp; </span>
-							${row.name} </td>
-							<td>${row.description}</td>
-							<td>${row.completed ? 'yes' : 'no'}</td>
-						</tr>`
+				self.tableRows += `
+					<tr>
+						<td>
+							<span class="glyphicon glyphicon-pencil edit" style="cursor: pointer" id="${row.id}"> &nbsp; </span> 
+							<span class="glyphicon glyphicon-remove delete" style="cursor: pointer" id="${row.id}"> &nbsp; </span>
+							${row.name}
+						</td>
+						<td>${row.description}</td>
+						<td>${row.completed ? 'yes' : 'no'}</td>
+					</tr>`
 			}
 		});
 
